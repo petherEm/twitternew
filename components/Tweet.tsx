@@ -9,9 +9,11 @@ import {
 } from "@heroicons/react/outline";
 import { fetchComments } from "../utils/fetchComments";
 import { useSession } from "next-auth/react";
+import { CommentBody, Comment } from "../typings";
 
 interface Props {
   tweet: Tweet;
+  comment: Comment;
 }
 
 const Tweet = ({ tweet }: Props) => {
