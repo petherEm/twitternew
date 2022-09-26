@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { RefreshIcon } from "@heroicons/react/outline";
 import TweetBox from "./TweetBox";
-import { Tweet } from "../typings";
+import { Tweet, Comment } from "../typings";
 import TweetComponent from "../components/Tweet";
 import { fetchTweets } from "../utils/fetchTweets";
 import toast from "react-hot-toast";
 
 interface Props {
   tweets: Tweet[];
+  comment: Comment;
+
 }
 
 const Feed = ({ tweets: tweetsProp }: Props) => {
