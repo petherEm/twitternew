@@ -2,7 +2,7 @@ export interface Tweet extends TweetBody {
     profileImg: string | undefined
     username: ReactNode
     text: ReactNode
-    image: JSX.Element
+    image: string | undefined
     _id: string,
     _createdAt: string,
     _udpatedAt: string,
