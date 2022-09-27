@@ -8,7 +8,6 @@ import toast from "react-hot-toast";
 
 interface Props {
   tweets: Tweet[];
-  comment: Comment;
 
 }
 
