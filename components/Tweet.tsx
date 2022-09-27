@@ -13,7 +13,6 @@ import { CommentBody, Comment } from "../typings";
 
 interface Props {
   tweet: Tweet;
-  comment: Comment;
 }
 
 const Tweet = ({ tweet }: Props) => {
@@ -29,15 +28,17 @@ const Tweet = ({ tweet }: Props) => {
   };
 
   const addComment = async () => {
-    const commentInfo: CommentBody = {
-      text: input,
+    const comment: CommentBody = {
+      comment: input,
+      tweetId: tweet._id,
       username: session?.user?.name || "Unknown user",
       profileImg:
         session?.user?.image ||
         "https://www.piotrmaciejewski.com/_next/image?url=%2F_next%2Fstatic%2Fimage%2Fpublic%2Fmecasual.1dae9088a694472b8409cf1551610cb6.png&w=1080&q=75",
+      text: "",
     };
     const result = await fetch(`/api/addComment`, {
-      body: JSON.stringify(commentInfo),
+      body: JSON.stringify(comment),
       method: "POST",
     });
 
@@ -59,7 +60,10 @@ const Tweet = ({ tweet }: Props) => {
   };
 
   return (
-    <div className="flex flex-col space-x-3 border-y p-5 border-gray-100">
+    <div
+      key={tweet._id}
+      className="flex flex-col space-x-3 border-y p-5 border-gray-100"
+    >
       <div className="flex space-x-3">
         <img
           src={tweet.profileImg}
@@ -93,7 +97,7 @@ const Tweet = ({ tweet }: Props) => {
 
       <div className="mt-5 flex justify-between">
         <div
-          onClick={() => session && setCommentBoxVisible(!commentBoxVisible)}
+          onClick={(e) => session && setCommentBoxVisible(!commentBoxVisible)}
           className="flex cursor-pointer items-center space-x-3 text-gray-400"
         >
           <ChatAlt2Icon className="h-5 w-5" />

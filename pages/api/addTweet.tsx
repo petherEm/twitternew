@@ -10,7 +10,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const data: typeof TweetBody = JSON.parse(req.body);
+  const data: TweetBody = JSON.parse(req.body);
 
   const mutations = {
     mutations: [
