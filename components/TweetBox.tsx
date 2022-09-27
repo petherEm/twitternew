@@ -61,7 +61,7 @@ const TweetBox = ({ setTweets }: Props) => {
   };
 
   const handleSubmit = (
-    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+    e: React.MouseEvent<HTMLInputElement>
   ) => {
     e.preventDefault();
 
