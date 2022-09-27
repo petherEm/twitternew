@@ -1,4 +1,8 @@
 export interface Tweet extends TweetBody {
+    profileImg: string | undefined
+    username: ReactNode
+    text: ReactNode
+    image: JSX.Element
     _id: string,
     _createdAt: string,
     _udpatedAt: string,
@@ -8,14 +12,16 @@ export interface Tweet extends TweetBody {
 }
 
 
-export const TweetBody = {
+export type TweetBody = {
     text: string,
     username: string,
     profileImg: string,
     image?: string
 }
 
-export const CommentBody = {
+export type CommentBody = {
+    comment: any
+    tweetId: any
     text: string,
     username: string,
     profileImg: string,
@@ -23,6 +29,9 @@ export const CommentBody = {
 }
 
 export interface Comment extends CommentBody {
+    profileImg: string | undefined
+    username: ReactNode
+    comment: ReactNode
     _createdAt: string,
     _id: string,
     _rev: string,

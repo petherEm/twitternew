@@ -16,7 +16,7 @@ interface Props {
   comment: Comment;
 }
 
-const Tweet = ({ tweet, comment }: Props) => {
+const Tweet = ({ tweet }: Props) => {
   const [comments, setComments] = useState<Comment[]>([]);
 
   const [commentBoxVisible, setCommentBoxVisible] = useState<boolean>(false);
